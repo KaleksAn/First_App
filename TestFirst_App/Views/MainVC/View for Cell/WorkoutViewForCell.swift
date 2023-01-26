@@ -8,6 +8,15 @@
 import UIKit
 
 class WorkoutViewForCell: UIView {
+    
+    private let workoutImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = .init(named: "imageCell")
+        imageView.backgroundColor = .specialBackground
+        imageView.layer.cornerRadius = 8
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,10 +32,12 @@ class WorkoutViewForCell: UIView {
         backgroundColor = .specialBrown
         layer.cornerRadius = 20
         translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(workoutImageView)
     }
     
     private func setupConstraints() {
-        
+        NSLayoutConstraint
     }
 
 }

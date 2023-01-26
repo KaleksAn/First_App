@@ -23,7 +23,7 @@ class WorkoutTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        //selectionStyle = .none
+        selectionStyle = .none
         backgroundColor = .clear
         addSubview(workoutView)
     }
