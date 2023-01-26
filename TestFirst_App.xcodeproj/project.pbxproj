@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */; };
+		D85F841D2982962900E1C641 /* WorkoutViewForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F841C2982962900E1C641 /* WorkoutViewForCell.swift */; };
 		D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E5808296FE447006EE429 /* AppDelegate.swift */; };
 		D86E580B296FE447006EE429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E580A296FE447006EE429 /* SceneDelegate.swift */; };
 		D86E580D296FE447006EE429 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E580C296FE447006EE429 /* MainViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		D85F841C2982962900E1C641 /* WorkoutViewForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewForCell.swift; sourceTree = "<group>"; };
 		D86E5805296FE447006EE429 /* TestFirst_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFirst_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86E5808296FE447006EE429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D86E580A296FE447006EE429 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D85F841B298295F600E1C641 /* View for Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D85F841C2982962900E1C641 /* WorkoutViewForCell.swift */,
+			);
+			path = "View for Cell";
+			sourceTree = "<group>";
+		};
 		D86E57FC296FE446006EE429 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +168,7 @@
 		D86E5830297026DB006EE429 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				D85F841B298295F600E1C641 /* View for Cell */,
 				D86E58362970344E006EE429 /* Cells */,
 				D86E5831297026F7006EE429 /* CalendarView.swift */,
 				D8BBDE1A298177EE00BC9323 /* WeatherView.swift */,
@@ -167,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				D86E583429703441006EE429 /* CalendarCollectionViewCell.swift */,
+				D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -247,9 +261,11 @@
 				D86E5826296FEBF8006EE429 /* UIColor + Extensions.swift in Sources */,
 				D86E5832297026F7006EE429 /* CalendarView.swift in Sources */,
 				D86E5824296FEB21006EE429 /* UIFont + Extensions.swift in Sources */,
+				D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */,
 				D86E580D296FE447006EE429 /* MainViewController.swift in Sources */,
 				D8BBDE1B298177EE00BC9323 /* WeatherView.swift in Sources */,
 				D86E582A296FEC2E006EE429 /* UIStackView + Extensions.swift in Sources */,
+				D85F841D2982962900E1C641 /* WorkoutViewForCell.swift in Sources */,
 				D86E583529703441006EE429 /* CalendarCollectionViewCell.swift in Sources */,
 				D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */,
 				D86E580B296FE447006EE429 /* SceneDelegate.swift in Sources */,
