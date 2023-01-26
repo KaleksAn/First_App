@@ -19,14 +19,6 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-//    private let calendarView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .specialGreen
-//        view.layer.cornerRadius = 10
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-    
     private let userNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Aleks Kan"
@@ -38,7 +30,7 @@ class MainViewController: UIViewController {
         return label
     }()
     
-    private lazy var addWorkoutButton: UIButton = {
+    private let addWorkoutButton: UIButton = {
         //Config for button
         var buttonConfig = UIButton.Configuration.filled()
         buttonConfig.image = UIImage(named: "addWorkout")?.withTintColor(.specialDarkGreen)
@@ -53,7 +45,7 @@ class MainViewController: UIViewController {
         
         //Create button with config
         let button = UIButton(configuration: buttonConfig)
-        button.addTarget(self, action: #selector(addWorkoutTapped), for: .touchUpInside)
+        button.addTarget(MainViewController.self, action: #selector(addWorkoutTapped), for: .touchUpInside)
         button.addShadowOnView()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -74,8 +66,6 @@ class MainViewController: UIViewController {
         setConstraints()
     }
     
-    
-
     private func setupViews() {
         view.backgroundColor = .specialBackground
         view.addSubview(calendarView)
@@ -85,12 +75,10 @@ class MainViewController: UIViewController {
         view.addSubview(weatherView)
     }
     
-    
-    @objc private func addWorkoutTapped() {
+    @objc
+    private func addWorkoutTapped() {
         print("addWorkoutTapped")
     }
-    
-    
 }
 
 @available(iOS 15.0, *)
