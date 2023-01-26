@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
         tableView.bounces = false
         tableView.backgroundColor = .specialBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
      
@@ -132,7 +133,7 @@ extension MainViewController: UITableViewDataSource {
 @available(iOS 15.0, *)
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        90.0
+        100.0
     }
 }
 
