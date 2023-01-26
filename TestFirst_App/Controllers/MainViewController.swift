@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
         return label
     }()
     
-    private let addWorkoutButton: UIButton = {
+    private lazy var addWorkoutButton: UIButton = {
         
         //Config for button
         var buttonConfig = UIButton.Configuration.filled()
@@ -59,7 +59,7 @@ class MainViewController: UIViewController {
         
         //Create button with config
         let button = UIButton(configuration: buttonConfig)
-        button.addTarget(MainViewController.self, action: #selector(addWorkoutTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addWorkoutTapped), for: .touchUpInside)
         button.addShadowOnView()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

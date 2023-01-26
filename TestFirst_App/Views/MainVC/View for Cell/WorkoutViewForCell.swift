@@ -56,16 +56,23 @@ class WorkoutViewForCell: UIView {
         return stack
     }()
     
-    private let startButton: UIButton = {
+    private lazy var startButton: UIButton = {
        let button = UIButton()
         button.setTitle("START", for: .normal)
         button.setTitleColor(.specialDarkGreen, for: .normal)
         button.backgroundColor = .specialYellow
         button.titleLabel?.font = .robotMedium18()
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(testFunc), for: .touchUpInside)
+        button.isUserInteractionEnabled = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc
+    private func testFunc() {
+        print("Hello Button!")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,10 +89,10 @@ class WorkoutViewForCell: UIView {
         layer.cornerRadius = 20
         translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(workoutImageView)
-        addSubview(workoutNameLabel)
         stackView.addArrangedSubview(repsLabel)
         stackView.addArrangedSubview(setsLabel)
+        addSubview(workoutImageView)
+        addSubview(workoutNameLabel)
         addSubview(stackView)
         addSubview(startButton)
     }

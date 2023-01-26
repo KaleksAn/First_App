@@ -25,7 +25,7 @@ class WorkoutTableViewCell: UITableViewCell {
     private func setupViews() {
         selectionStyle = .none
         backgroundColor = .clear
-        addSubview(workoutView)
+        contentView.addSubview(workoutView)
     }
     
     private func setConstraints(){
