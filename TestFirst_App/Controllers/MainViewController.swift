@@ -61,6 +61,16 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    private let workoutLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Workout today"
+        label.textAlignment = .left
+        label.textColor = .specialLightBrown
+        label.font = .robotMedium14()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
     
@@ -83,7 +93,8 @@ class MainViewController: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(addWorkoutButton)
         view.addSubview(weatherView)
-        view.addSubview(tableView)
+        view.addSubview(workoutLabel)
+       // view.addSubview(tableView)
     }
     
     private func setDelegatesForTable() {
@@ -159,6 +170,11 @@ extension MainViewController {
             weatherView.leadingAnchor.constraint(equalTo: addWorkoutButton.trailingAnchor, constant: 5),
             weatherView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             weatherView.heightAnchor.constraint(equalToConstant: 80)
+        ])
+        
+        NSLayoutConstraint.activate([
+            workoutLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 5),
+            workoutLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
         ])
         
     }
