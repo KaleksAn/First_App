@@ -168,8 +168,8 @@
 		D86E5830297026DB006EE429 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				D85F841B298295F600E1C641 /* View for Cell */,
 				D86E58362970344E006EE429 /* Cells */,
+				D85F841B298295F600E1C641 /* View for Cell */,
 				D86E5831297026F7006EE429 /* CalendarView.swift */,
 				D8BBDE1A298177EE00BC9323 /* WeatherView.swift */,
 			);

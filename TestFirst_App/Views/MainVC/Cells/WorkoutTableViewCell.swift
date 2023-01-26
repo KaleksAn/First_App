@@ -8,6 +8,8 @@
 import UIKit
 
 class WorkoutTableViewCell: UITableViewCell {
+    
+    private let workoutView = WorkoutViewForCell()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,11 +23,18 @@ class WorkoutTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        
+        //selectionStyle = .none
+        backgroundColor = .clear
+        addSubview(workoutView)
     }
     
     private func setConstraints(){
-        
+        NSLayoutConstraint.activate([
+            workoutView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            workoutView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            workoutView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            workoutView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+        ])
     }
     
 }

@@ -100,7 +100,7 @@ class MainViewController: UIViewController {
         view.addSubview(workoutLabel)
         view.addSubview(tableView)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: tableViewCellId)
+        tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: tableViewCellId)
     }
     
     private func setDelegatesForTable() {
@@ -123,10 +123,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath)
-        var config = cell.defaultContentConfiguration()
-        config.text = "/(indexPath.row)"
-        cell.contentConfiguration = config
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! WorkoutTableViewCell
         return cell
     }
 }
@@ -135,7 +132,7 @@ extension MainViewController: UITableViewDataSource {
 @available(iOS 15.0, *)
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50.0
+        90.0
     }
 }
 
