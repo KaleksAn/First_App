@@ -9,6 +9,14 @@ import UIKit
 
 @available(iOS 15.0, *)
 class MainViewController: UIViewController {
+    
+    private let tableView: UITableView = {
+       let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.bounces = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
      
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -31,11 +39,13 @@ class MainViewController: UIViewController {
     }()
     
     private let addWorkoutButton: UIButton = {
+        
         //Config for button
         var buttonConfig = UIButton.Configuration.filled()
         buttonConfig.image = UIImage(named: "addWorkout")?.withTintColor(.specialDarkGreen)
         buttonConfig.imagePlacement = .top
         buttonConfig.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0)
+        
         //Config font
         var container = AttributeContainer()
         container.font = .robotMedium12()
@@ -73,6 +83,12 @@ class MainViewController: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(addWorkoutButton)
         view.addSubview(weatherView)
+        view.addSubview(tableView)
+    }
+    
+    private func setDelegatesForTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     @objc
@@ -81,6 +97,32 @@ class MainViewController: UIViewController {
     }
 }
 
+
+//MARK: - UITableViewDataSource
+@available(iOS 15.0, *)
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: indexPath)
+        var config = cell.defaultContentConfiguration()
+        config.text = "/(indexPath.row)"
+        cell.contentConfiguration = config
+        return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+@available(iOS 15.0, *)
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50.0
+    }
+}
+
+//MARK: - Set constraints
 @available(iOS 15.0, *)
 extension MainViewController {
     
@@ -120,5 +162,4 @@ extension MainViewController {
         ])
         
     }
-    
 }
