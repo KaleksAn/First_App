@@ -10,10 +10,13 @@ import UIKit
 @available(iOS 15.0, *)
 class MainViewController: UIViewController {
     
+    private let tableViewCellId = "tableViewCellId"
+    
     private let tableView: UITableView = {
        let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.bounces = false
+        tableView.backgroundColor = .specialBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -84,6 +87,7 @@ class MainViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        setDelegatesForTable()
     }
     
     private func setupViews() {
@@ -94,7 +98,9 @@ class MainViewController: UIViewController {
         view.addSubview(addWorkoutButton)
         view.addSubview(weatherView)
         view.addSubview(workoutLabel)
-       // view.addSubview(tableView)
+        view.addSubview(tableView)
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: tableViewCellId)
     }
     
     private func setDelegatesForTable() {
@@ -117,7 +123,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath)
         var config = cell.defaultContentConfiguration()
         config.text = "/(indexPath.row)"
         cell.contentConfiguration = config
@@ -173,8 +179,15 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
-            workoutLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 5),
+            workoutLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 10),
             workoutLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
         
     }

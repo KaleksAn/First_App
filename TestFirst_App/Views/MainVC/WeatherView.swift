@@ -72,7 +72,7 @@ extension WeatherView {
         ])
         
         NSLayoutConstraint.activate([
-            recomendationLabel.topAnchor.constraint(equalTo: currentWeatherLabel.bottomAnchor, constant: 0),
+            recomendationLabel.topAnchor.constraint(equalTo: currentWeatherLabel.bottomAnchor, constant: 5),
             recomendationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
         ])
         
