@@ -65,6 +65,7 @@ class WorkoutViewForCell: UIView {
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(testFunc), for: .touchUpInside)
         button.isUserInteractionEnabled = true
+        button.addShadowOnView()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
