@@ -19,6 +19,8 @@ class MainViewController: UIViewController {
         tableView.backgroundColor = .specialBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
+        tableView.isHidden = true
+        tableView.delaysContentTouches = false
         return tableView
     }()
      
@@ -74,6 +76,8 @@ class MainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
     
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
