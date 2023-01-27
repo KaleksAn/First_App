@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
         return button
     }()
     
-    private let workoutLabel: UILabel = {
+    private let workoutTodayLabel: UILabel = {
         let label = UILabel()
         label.text = "Workout today"
         label.textAlignment = .left
@@ -77,7 +77,14 @@ class MainViewController: UIViewController {
         return label
     }()
     
-    
+    private let noWorkoutimageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "noWorkout")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isHidden = false
+        return imageView
+    }()
     
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
@@ -102,8 +109,9 @@ class MainViewController: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(addWorkoutButton)
         view.addSubview(weatherView)
-        view.addSubview(workoutLabel)
+        view.addSubview(workoutTodayLabel)
         view.addSubview(tableView)
+        view.addSubview(noWorkoutimageView)
         
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: tableViewCellId)
     }
@@ -181,15 +189,22 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
-            workoutLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 10),
-            workoutLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
+            workoutTodayLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 10),
+            workoutTodayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noWorkoutimageView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0),
+            noWorkoutimageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            noWorkoutimageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            noWorkoutimageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1)
         ])
         
     }
