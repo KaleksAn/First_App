@@ -123,6 +123,9 @@ class MainViewController: UIViewController {
     
     @objc
     private func addWorkoutTapped() {
+        let vc = NewWorkoutVC()
+        vc.modalTransitionStyle = .coverVertical
+        present(vc, animated: true)
         print("addWorkoutTapped")
     }
 }

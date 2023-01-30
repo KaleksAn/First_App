@@ -9,13 +9,20 @@ import UIKit
 
 class NewWorkoutVC: UIViewController {
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        setupViews()
+        setupConstraints()
     }
 
+    private func setupViews() {
+        view.backgroundColor = .specialBackground
+    }
+    
+    private func setupConstraints() {
+        
+    }
+    
+    
 }
