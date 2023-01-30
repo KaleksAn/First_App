@@ -48,6 +48,7 @@ class NewWorkoutVC: UIViewController {
     }()
     
     private let dateAndRepeatView = DateAndRepeatView()
+    private let repsOrTimerView = RepsOrTimerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,7 @@ class NewWorkoutVC: UIViewController {
         view.addSubview(dateAndRepeatLabel)
         view.addSubview(dateAndRepeatView)
         view.addSubview(repsOrTimerLabel)
+        view.addSubview(repsOrTimerView)
     }
     
     //MARK: - Selectors
@@ -101,7 +103,8 @@ extension NewWorkoutVC {
         
         NSLayoutConstraint.activate([
             labelForTextField.topAnchor.constraint(equalTo: labelWorkoutVC.bottomAnchor, constant: 5),
-            labelForTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            labelForTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            labelForTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
         
         NSLayoutConstraint.activate([
@@ -113,7 +116,8 @@ extension NewWorkoutVC {
         
         NSLayoutConstraint.activate([
             dateAndRepeatLabel.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
-            dateAndRepeatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            dateAndRepeatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            dateAndRepeatLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
         
         NSLayoutConstraint.activate([
@@ -125,7 +129,15 @@ extension NewWorkoutVC {
         
         NSLayoutConstraint.activate([
             repsOrTimerLabel.topAnchor.constraint(equalTo: dateAndRepeatView.bottomAnchor, constant: 20),
-            repsOrTimerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            repsOrTimerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            repsOrTimerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+        
+        NSLayoutConstraint.activate([
+            repsOrTimerView.topAnchor.constraint(equalTo: repsOrTimerLabel.bottomAnchor, constant: 5),
+            repsOrTimerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            repsOrTimerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            repsOrTimerView.heightAnchor.constraint(equalToConstant: 320)
         ])
         
     }
