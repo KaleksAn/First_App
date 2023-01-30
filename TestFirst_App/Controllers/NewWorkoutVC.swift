@@ -46,6 +46,7 @@ class NewWorkoutVC: UIViewController {
         return field
     }()
     
+    private let dateAndRepeatView = DateAndRepeatView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,7 @@ class NewWorkoutVC: UIViewController {
         view.addSubview(labelForTextField)
         view.addSubview(nameTextField)
         view.addSubview(dateAndRepeatLabel)
+        view.addSubview(dateAndRepeatView)
     }
     
     //MARK: - Selectors
@@ -110,6 +112,13 @@ extension NewWorkoutVC {
         NSLayoutConstraint.activate([
             dateAndRepeatLabel.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
             dateAndRepeatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dateAndRepeatView.topAnchor.constraint(equalTo: dateAndRepeatLabel.bottomAnchor, constant: 5),
+            dateAndRepeatView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            dateAndRepeatView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            dateAndRepeatView.heightAnchor.constraint(equalToConstant: 100)
         ])
         
     }
