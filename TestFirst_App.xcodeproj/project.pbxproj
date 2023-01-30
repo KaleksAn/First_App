@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80E96BB29878E6900D47A04 /* NewWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E96BA29878E6900D47A04 /* NewWorkoutVC.swift */; };
 		D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */; };
 		D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E5808296FE447006EE429 /* AppDelegate.swift */; };
 		D86E580B296FE447006EE429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E580A296FE447006EE429 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D80E96BA29878E6900D47A04 /* NewWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutVC.swift; sourceTree = "<group>"; };
 		D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		D86E5805296FE447006EE429 /* TestFirst_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFirst_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86E5808296FE447006EE429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D86E580C296FE447006EE429 /* MainViewController.swift */,
+				D80E96BA29878E6900D47A04 /* NewWorkoutVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				D86E5828296FEC15006EE429 /* UIView + Extensions.swift in Sources */,
 				D86E5826296FEBF8006EE429 /* UIColor + Extensions.swift in Sources */,
 				D86E5832297026F7006EE429 /* CalendarView.swift in Sources */,
+				D80E96BB29878E6900D47A04 /* NewWorkoutVC.swift in Sources */,
 				D86E5824296FEB21006EE429 /* UIFont + Extensions.swift in Sources */,
 				D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */,
 				D86E580D296FE447006EE429 /* MainViewController.swift in Sources */,
