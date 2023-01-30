@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D80E96BB29878E6900D47A04 /* NewWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E96BA29878E6900D47A04 /* NewWorkoutVC.swift */; };
 		D80E96BD298791FB00D47A04 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E96BC298791FB00D47A04 /* UILabel + Extensions.swift */; };
+		D80E96C02987B11800D47A04 /* DateAndRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E96BF2987B11800D47A04 /* DateAndRepeatView.swift */; };
 		D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */; };
 		D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E5808296FE447006EE429 /* AppDelegate.swift */; };
 		D86E580B296FE447006EE429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E580A296FE447006EE429 /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		D80E96BA29878E6900D47A04 /* NewWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutVC.swift; sourceTree = "<group>"; };
 		D80E96BC298791FB00D47A04 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
+		D80E96BF2987B11800D47A04 /* DateAndRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndRepeatView.swift; sourceTree = "<group>"; };
 		D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		D86E5805296FE447006EE429 /* TestFirst_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFirst_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86E5808296FE447006EE429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D80E96BE2987B0DE00D47A04 /* NewWorkoutVC */ = {
+			isa = PBXGroup;
+			children = (
+				D80E96BF2987B11800D47A04 /* DateAndRepeatView.swift */,
+			);
+			path = NewWorkoutVC;
+			sourceTree = "<group>";
+		};
 		D86E57FC296FE446006EE429 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D86E5830297026DB006EE429 /* MainVC */,
+				D80E96BE2987B0DE00D47A04 /* NewWorkoutVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 				D86E5824296FEB21006EE429 /* UIFont + Extensions.swift in Sources */,
 				D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */,
 				D80E96BD298791FB00D47A04 /* UILabel + Extensions.swift in Sources */,
+				D80E96C02987B11800D47A04 /* DateAndRepeatView.swift in Sources */,
 				D86E580D296FE447006EE429 /* MainViewController.swift in Sources */,
 				D8BBDE1B298177EE00BC9323 /* WeatherView.swift in Sources */,
 				D86E582A296FEC2E006EE429 /* UIStackView + Extensions.swift in Sources */,
