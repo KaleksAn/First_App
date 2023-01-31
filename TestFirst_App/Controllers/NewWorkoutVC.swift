@@ -67,6 +67,7 @@ class NewWorkoutVC: UIViewController {
 
         setupViews()
         setupConstraints()
+        setDelegates()
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,6 +85,22 @@ class NewWorkoutVC: UIViewController {
         view.addSubview(repsOrTimerLabel)
         view.addSubview(repsOrTimerView)
         view.addSubview(saveButton)
+        
+        hideKeyboardWhenTappedAround()
+    }
+    
+    private func setDelegates() {
+        nameTextField.delegate = self
+    }
+    
+    private func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     //MARK: - Selectors
@@ -160,6 +177,13 @@ extension NewWorkoutVC {
             saveButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
+    }
+}
+
+extension NewWorkoutVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return nameTextField.resignFirstResponder()
     }
     
 }
