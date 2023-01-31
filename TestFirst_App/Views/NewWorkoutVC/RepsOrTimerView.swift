@@ -27,13 +27,14 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let setsSlider: UISlider = {
+    private lazy var setsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 50
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.addTarget(self, action: #selector(setupSetsValue), for: .valueChanged)
         return slider
     }()
     
@@ -65,26 +66,27 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let repsSlider: UISlider = {
+    private lazy var repsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 50
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.addTarget(self, action: #selector(setupRepsValue), for: .valueChanged)
         return slider
     }()
     
     private let timerLabel: UILabel = {
        let label = UILabel()
-        label.text = "Reps"
+        label.text = "Timer"
         label.font = .robotMedium18()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let timelabel: UILabel = {
+    private let timeLabel: UILabel = {
        let label = UILabel()
         label.text = "1 min"
         label.font = .robotMedium24()
@@ -93,13 +95,14 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let timerSlider: UISlider = {
+    private lazy var timerSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 600
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.addTarget(self, action: #selector(setupTimerValue), for: .valueChanged)
         return slider
     }()
     
@@ -128,7 +131,7 @@ class RepsOrTimerView: UIView {
         addSubview(setsStackView)
         repsStackView = UIStackView(arrangedSubviews: [repsLabel, numberRepslabel], axis: .horizontal, spacing: 10)
         addSubview(repsStackView)
-        timerStackView = UIStackView(arrangedSubviews: [timerLabel, timelabel], axis: .horizontal, spacing: 10)
+        timerStackView = UIStackView(arrangedSubviews: [timerLabel, timeLabel], axis: .horizontal, spacing: 10)
         addSubview(timerStackView)
         
         addSubview(setsSlider)
@@ -138,8 +141,29 @@ class RepsOrTimerView: UIView {
     }
     
     
+    //MARK: - Selectors methods
+    
+    @objc
+    private func setupSetsValue() {
+        numberSetslabel.text = "\(Int(setsSlider.value))"
+    }
+    
+    @objc
+    private func setupRepsValue() {
+        numberRepslabel.text = "\(Int(repsSlider.value))"
+    }
+    
+    @objc
+    private func setupTimerValue() {
+        let minutes = Int(timerSlider.value) / 60
+        let seconds = Int(timerSlider.value) % 60
+        timeLabel.text = seconds == 0 ? "\(minutes) min" : "\(minutes) min \(seconds) sec"
+    }
+    
 }
 
+
+//MARK: - Setup constraints
 extension RepsOrTimerView {
     
     private func setupConstraints() {
