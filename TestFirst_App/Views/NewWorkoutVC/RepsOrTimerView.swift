@@ -151,6 +151,8 @@ class RepsOrTimerView: UIView {
     @objc
     private func setupRepsValue() {
         numberRepslabel.text = "\(Int(repsSlider.value))"
+        deactivateStatus(for: timerLabel, numberLabel: timeLabel, and: timerSlider)
+        activateStatus(for: repsLabel, numberLabel: numberRepslabel, and: repsSlider)
     }
     
     @objc
@@ -158,6 +160,22 @@ class RepsOrTimerView: UIView {
         let minutes = Int(timerSlider.value) / 60
         let seconds = Int(timerSlider.value) % 60
         timeLabel.text = seconds == 0 ? "\(minutes) min" : "\(minutes) min \(seconds) sec"
+        deactivateStatus(for: repsLabel, numberLabel: numberRepslabel, and: repsSlider)
+        activateStatus(for: timerLabel, numberLabel: timeLabel, and: timerSlider)
+    }
+    
+    private func deactivateStatus(for label: UILabel, numberLabel: UILabel, and slider: UISlider) {
+        label.alpha = 0.5
+        numberLabel.alpha = 0.5
+        numberLabel.text = label.text == "Timer" ? "1 min" : "1"
+        slider.alpha = 0.5
+        slider.value = 1
+    }
+    
+    private func activateStatus(for label: UILabel, numberLabel: UILabel, and slider: UISlider) {
+        label.alpha = 1.0
+        numberLabel.alpha = 1.0
+        slider.alpha = 1.0
     }
     
 }
