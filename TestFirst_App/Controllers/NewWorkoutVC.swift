@@ -47,6 +47,18 @@ class NewWorkoutVC: UIViewController {
         return field
     }()
     
+    private let saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("SAVE", for: .normal)
+        button.titleLabel?.font = .robotBold16()
+        button.backgroundColor = .specialGreen
+        button.tintColor = .white
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     private let dateAndRepeatView = DateAndRepeatView()
     private let repsOrTimerView = RepsOrTimerView()
 
@@ -71,6 +83,7 @@ class NewWorkoutVC: UIViewController {
         view.addSubview(dateAndRepeatView)
         view.addSubview(repsOrTimerLabel)
         view.addSubview(repsOrTimerView)
+        view.addSubview(saveButton)
     }
     
     //MARK: - Selectors
@@ -138,6 +151,13 @@ extension NewWorkoutVC {
             repsOrTimerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             repsOrTimerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             repsOrTimerView.heightAnchor.constraint(equalToConstant: 320)
+        ])
+        
+        NSLayoutConstraint.activate([
+            saveButton.topAnchor.constraint(equalTo: repsOrTimerView.bottomAnchor, constant: 20),
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            saveButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
     }
