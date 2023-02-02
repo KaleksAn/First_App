@@ -27,8 +27,8 @@ class WorkoutTableViewCell: UITableViewCell {
     
     private let workoutImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "imageCell")
-        imageView.backgroundColor = .specialBackground
+//        imageView.image = UIImage(named: "imageCell")
+//        imageView.backgroundColor = .specialBackground
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -73,15 +73,10 @@ class WorkoutTableViewCell: UITableViewCell {
         button.layer.cornerRadius = 10
         button.addShadowOnView()
         button.tintColor = .specialDarkGreen
-        button.addTarget(self, action: #selector(testFunc), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(testFunc), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    @objc
-    private func testFunc() {
-        print("Hello Button")
-    }
     
     private var labelsStackView = UIStackView()
     
@@ -96,20 +91,6 @@ class WorkoutTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    func cellConfigure(model: WorkoutModel) {
-        workoutNameLabel.text = model.workoutName
-        
-        let (min, sec) = { return ($0 / 60, $0 % 60) }(model.workoutTimer)
-        repsLabel.text = (model.workoutTimer == 0 ? "Reps: \(model.workoutRepeat)" : "Timer: \(min) \(sec)")
-        setsLabel.text = "Sets: \(model.workoutSets)"
-        
-        guard let imageData = model.workoutImage else { return }
-        guard let image = UIImage(data: imageData) else { return }
-        workoutImageView.image = image
-    }
-    
     private func setupViews() {
         selectionStyle = .none
         backgroundColor = .clear
@@ -122,6 +103,19 @@ class WorkoutTableViewCell: UITableViewCell {
         addSubview(labelsStackView)
         contentView.addSubview(startButton)
     }
+    
+    func cellConfigure(model: WorkoutModel) {
+        workoutNameLabel.text = model.workoutName
+        
+        let (min, sec) = { return ($0 / 60, $0 % 60) }(model.workoutTimer)
+        repsLabel.text = (model.workoutTimer == 0 ? "Reps: \(model.workoutReps)" : "Timer: \(min) \(sec)")
+        setsLabel.text = "Sets: \(model.workoutSets)"
+        
+        guard let imageData = model.workoutImage else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        workoutImageView.image = image
+    }
+    
     
     private func setConstraints(){
         

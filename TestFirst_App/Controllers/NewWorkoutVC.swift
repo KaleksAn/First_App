@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NewWorkoutVC: UIViewController {
     
@@ -47,7 +48,7 @@ class NewWorkoutVC: UIViewController {
         return field
     }()
     
-    private let saveButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("SAVE", for: .normal)
         button.titleLabel?.font = .robotBold16()
@@ -55,12 +56,18 @@ class NewWorkoutVC: UIViewController {
         button.tintColor = .white
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(saveButtonTaped), for: .touchUpInside)
         return button
     }()
     
     
     private let dateAndRepeatView = DateAndRepeatView()
     private let repsOrTimerView = RepsOrTimerView()
+    
+    private let localRealm = try! Realm() // Create BD
+    private var workoutModel = WorkoutModel() // Create object for BD
+    
+    private let testImage = UIImage(named: "imageCell")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,16 +106,74 @@ class NewWorkoutVC: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissKeyboard() {
+    
+    //MARK: - Selectors
+    @objc
+    func saveButtonTaped() {
+       // RealmManager.shared.saveWorkoutModel(model: workoutModel)
+        setModel()
+        saveModel()
+    }
+    
+    
+    @objc
+    func dismissKeyboard() {
         view.endEditing(true)
     }
     
-    //MARK: - Selectors
     @objc
     private func closeNewWorkoutVC() {
         dismiss(animated: true)
     }
     
+    //MARK: - Create model for Realm
+    //Create model
+    private func setModel() {
+        guard let nameWorkout = nameTextField.text else { return }
+        workoutModel.workoutName = nameWorkout
+        
+        workoutModel.workoutDate = dateAndRepeatView.datePicker.date
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: dateAndRepeatView.datePicker.date)
+        guard let weekDay = components.weekday else { return }
+        workoutModel.workoutNumberOfDay = weekDay
+        
+        workoutModel.workoutRepeat = dateAndRepeatView.repSwitch.isOn
+        workoutModel.workoutSets = Int(repsOrTimerView.setsSlider.value)
+        workoutModel.workoutReps = Int(repsOrTimerView.repsSlider.value)
+        workoutModel.workoutTimer = Int(repsOrTimerView.timerSlider.value)
+        
+        guard let imageData = testImage?.pngData() else { return }
+        workoutModel.workoutImage = imageData
+        
+        
+    }
+    
+    private func saveModel() {
+        guard let text = nameTextField.text else { return }
+        let count = text.filter{ $0.isNumber || $0.isLetter }.count
+
+        if count != 0 && workoutModel.workoutSets != 0 && (workoutModel.workoutReps != 0 || workoutModel.workoutTimer != 0) {
+            RealmManager.shared.saveWorkoutModel(model: workoutModel)
+            alertOk(title: "Success", message: nil)
+            workoutModel = WorkoutModel()
+            refreshWorkoutObjects()
+        } else {
+            alertOk(title: "Error", message: "Enter all parameters")
+        }
+    }
+    
+    private func refreshWorkoutObjects() {
+        dateAndRepeatView.datePicker.setDate(Date(), animated: true)
+        nameTextField.text = ""
+        dateAndRepeatView.repSwitch.isOn = true
+        repsOrTimerView.numberSetslabel.text = "0"
+        repsOrTimerView.setsSlider.value = 0
+        repsOrTimerView.numberRepslabel.text = "0"
+        repsOrTimerView.repsSlider.value = 0
+        repsOrTimerView.numberOfTimerLabel.text = "0"
+        repsOrTimerView.timerSlider.value = 0
+    }
     
 }
 

@@ -18,7 +18,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let numberSetslabel: UILabel = {
+     let numberSetslabel: UILabel = {
        let label = UILabel()
         label.text = "1"
         label.font = .robotMedium24()
@@ -27,7 +27,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private lazy var setsSlider: UISlider = {
+     lazy var setsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 50
@@ -57,7 +57,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let numberRepslabel: UILabel = {
+     let numberRepslabel: UILabel = {
        let label = UILabel()
         label.text = "1"
         label.font = .robotMedium24()
@@ -66,7 +66,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private lazy var repsSlider: UISlider = {
+     lazy var repsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 50
@@ -86,7 +86,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private let timeLabel: UILabel = {
+     let numberOfTimerLabel: UILabel = {
        let label = UILabel()
         label.text = "1 min"
         label.font = .robotMedium24()
@@ -95,7 +95,7 @@ class RepsOrTimerView: UIView {
         return label
     }()
     
-    private lazy var timerSlider: UISlider = {
+     lazy var timerSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 600
@@ -131,7 +131,7 @@ class RepsOrTimerView: UIView {
         addSubview(setsStackView)
         repsStackView = UIStackView(arrangedSubviews: [repsLabel, numberRepslabel], axis: .horizontal, spacing: 10)
         addSubview(repsStackView)
-        timerStackView = UIStackView(arrangedSubviews: [timerLabel, timeLabel], axis: .horizontal, spacing: 10)
+        timerStackView = UIStackView(arrangedSubviews: [timerLabel, numberOfTimerLabel], axis: .horizontal, spacing: 10)
         addSubview(timerStackView)
         
         addSubview(setsSlider)
@@ -151,16 +151,16 @@ class RepsOrTimerView: UIView {
     @objc
     private func setupRepsValue() {
         numberRepslabel.text = "\(Int(repsSlider.value))"
-        deactivateStatus(for: timerLabel, numberLabel: timeLabel, and: timerSlider)
+        deactivateStatus(for: timerLabel, numberLabel: numberOfTimerLabel, and: timerSlider)
         activateStatus(for: repsLabel, numberLabel: numberRepslabel, and: repsSlider)
     }
     
     @objc
     private func setupTimerValue() {
         let (min, sec) = { return ($0 / 60, $0 % 60) }(Int(timerSlider.value))
-        timeLabel.text = sec == 0 ? "\(min) min" : "\(min) min \(sec) sec"
+        numberOfTimerLabel.text = sec == 0 ? "\(min) min" : "\(min) min \(sec) sec"
         deactivateStatus(for: repsLabel, numberLabel: numberRepslabel, and: repsSlider)
-        activateStatus(for: timerLabel, numberLabel: timeLabel, and: timerSlider)
+        activateStatus(for: timerLabel, numberLabel: numberOfTimerLabel, and: timerSlider)
     }
     
     private func deactivateStatus(for label: UILabel, numberLabel: UILabel, and slider: UISlider) {

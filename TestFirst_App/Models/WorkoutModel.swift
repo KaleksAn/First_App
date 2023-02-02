@@ -14,6 +14,7 @@ class WorkoutModel: Object {
     @Persisted var workoutName: String = "Unknow"
     @Persisted var workoutRepeat: Bool = true
     @Persisted var workoutSets: Int = 0
+    @Persisted var workoutReps: Int = 0
     @Persisted var workoutTimer: Int = 0
     @Persisted var workoutImage: Data?
 }
