@@ -96,6 +96,20 @@ class WorkoutTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+    func cellConfigure(model: WorkoutModel) {
+        workoutNameLabel.text = model.workoutName
+        
+        let (min, sec) = { return ($0 / 60, $0 % 60) }(model.workoutTimer)
+        repsLabel.text = (model.workoutTimer == 0 ? "Reps: \(model.workoutRepeat)" : "Timer: \(min) \(sec)")
+        setsLabel.text = "Sets: \(model.workoutSets)"
+        
+        guard let imageData = model.workoutImage else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        workoutImageView.image = image
+    }
+    
     private func setupViews() {
         selectionStyle = .none
         backgroundColor = .clear

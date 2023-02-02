@@ -157,9 +157,8 @@ class RepsOrTimerView: UIView {
     
     @objc
     private func setupTimerValue() {
-        let minutes = Int(timerSlider.value) / 60
-        let seconds = Int(timerSlider.value) % 60
-        timeLabel.text = seconds == 0 ? "\(minutes) min" : "\(minutes) min \(seconds) sec"
+        let (min, sec) = { return ($0 / 60, $0 % 60) }(Int(timerSlider.value))
+        timeLabel.text = sec == 0 ? "\(min) min" : "\(min) min \(sec) sec"
         deactivateStatus(for: repsLabel, numberLabel: numberRepslabel, and: repsSlider)
         activateStatus(for: timerLabel, numberLabel: timeLabel, and: timerSlider)
     }

@@ -161,11 +161,13 @@ class MainViewController: UIViewController {
 @available(iOS 15.0, *)
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return workoutArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! WorkoutTableViewCell
+        let model = workoutArray[indexPath.row]
+        cell.cellConfigure(model: model)
         return cell
     }
 }
