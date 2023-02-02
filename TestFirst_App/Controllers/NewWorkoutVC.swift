@@ -42,7 +42,7 @@ class NewWorkoutVC: UIViewController {
         field.clearButtonMode = .always
         field.returnKeyType = .done
         field.backgroundColor = .specialBrown
-        field.placeholder = "Enter your name"
+        field.placeholder = "Enter workout name"
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
