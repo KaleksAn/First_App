@@ -255,3 +255,7 @@ extension NewWorkoutVC: UITextFieldDelegate {
     
 }
 
+//MARK: - NewWorkoutVCDelegates
+protocol ReloadTableViewDelegate: AnyObject {
+    func reloadTableViewForModalCV(_ viewController: NewWorkoutVC)
+}
