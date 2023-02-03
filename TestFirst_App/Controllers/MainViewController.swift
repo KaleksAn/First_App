@@ -11,7 +11,7 @@ import RealmSwift
 @available(iOS 15.0, *)
 class MainViewController: UIViewController {
     
-    private let tableView: UITableView = {
+     let tableView: UITableView = {
        let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.bounces = false
@@ -89,6 +89,7 @@ class MainViewController: UIViewController {
     private let weatherView = WeatherView()
     private let tableViewCellId = "tableViewCellId"
     
+    //Realm
     private let localRealm = try! Realm()
     private var workoutArray: Results<WorkoutModel>! = nil
     
@@ -133,7 +134,8 @@ class MainViewController: UIViewController {
     @objc
     private func addWorkoutTapped() {
         let vc = NewWorkoutVC()
-        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .automatic
+        vc.customDelegate = self
         present(vc, animated: true)
         print("addWorkoutTapped")
     }
@@ -244,4 +246,15 @@ extension MainViewController {
         ])
         
     }
+}
+
+
+//MARK: - My use delegates
+
+@available(iOS 15.0, *)
+extension MainViewController: ReloadTableViewDelegate {
+    func reloadTableViewForModalCV(_ viewController: NewWorkoutVC) {
+        tableView.reloadData()
+    }
+    
 }

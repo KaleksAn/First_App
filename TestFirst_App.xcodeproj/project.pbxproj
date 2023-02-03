@@ -18,6 +18,7 @@
 		D8496F24298B8C75007AD7B1 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8496F23298B8C75007AD7B1 /* WorkoutModel.swift */; };
 		D8496F27298B99FB007AD7B1 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8496F26298B99FB007AD7B1 /* RealmManager.swift */; };
 		D8496F29298BB6F5007AD7B1 /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8496F28298BB6F4007AD7B1 /* SimpleAlert.swift */; };
+		D85E5493298D28B900BE7980 /* ReloadTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E5492298D28B900BE7980 /* ReloadTableViewDelegate.swift */; };
 		D85EAA752987E781002B0516 /* RepsOrTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85EAA742987E781002B0516 /* RepsOrTimerView.swift */; };
 		D85F841A2982929F00E1C641 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */; };
 		D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E5808296FE447006EE429 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		D8496F23298B8C75007AD7B1 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		D8496F26298B99FB007AD7B1 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D8496F28298BB6F4007AD7B1 /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
+		D85E5492298D28B900BE7980 /* ReloadTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableViewDelegate.swift; sourceTree = "<group>"; };
 		D85EAA742987E781002B0516 /* RepsOrTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsOrTimerView.swift; sourceTree = "<group>"; };
 		D85F84192982929F00E1C641 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		D86E5805296FE447006EE429 /* TestFirst_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFirst_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,14 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		D85E5491298D289200BE7980 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D85E5492298D28B900BE7980 /* ReloadTableViewDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		D86E57FC296FE446006EE429 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		D86E5807296FE447006EE429 /* TestFirst_App */ = {
 			isa = PBXGroup;
 			children = (
+				D85E5491298D289200BE7980 /* Protocols */,
 				D86E581C296FE94E006EE429 /* Application */,
 				D86E581D296FE9AD006EE429 /* Models */,
 				D86E581F296FE9BF006EE429 /* Views */,
@@ -330,6 +341,7 @@
 				D80D44CF298998FF00738F98 /* StatisticViewController.swift in Sources */,
 				D8496F27298B99FB007AD7B1 /* RealmManager.swift in Sources */,
 				D8496F29298BB6F5007AD7B1 /* SimpleAlert.swift in Sources */,
+				D85E5493298D28B900BE7980 /* ReloadTableViewDelegate.swift in Sources */,
 				D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */,
 				D86E580B296FE447006EE429 /* SceneDelegate.swift in Sources */,
 			);

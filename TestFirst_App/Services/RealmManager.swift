@@ -14,7 +14,7 @@ class RealmManager {
     
     private init() { }
     
-    let localRealm = try! Realm()
+    private let localRealm = try! Realm()
     
     func saveWorkoutModel(model: WorkoutModel) {
         try! localRealm.write {

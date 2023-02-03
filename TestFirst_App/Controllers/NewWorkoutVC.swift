@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 class NewWorkoutVC: UIViewController {
+    weak var customDelegate: ReloadTableViewDelegate?
     
     private lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
@@ -123,6 +124,7 @@ class NewWorkoutVC: UIViewController {
     
     @objc
     private func closeNewWorkoutVC() {
+        customDelegate?.reloadTableViewForModalCV(self)
         dismiss(animated: true)
     }
     
@@ -252,3 +254,4 @@ extension NewWorkoutVC: UITextFieldDelegate {
     }
     
 }
+
