@@ -31,7 +31,9 @@ class MainTabController: UITabBarController {
         let statisticVC = StatisticViewController()
         let profileVC = ProfileViewController()
         
-        setViewControllers([mainVC, statisticVC, profileVC], animated: true)
+        let startWorkoutVC = StartWorkout() // Test VC
+        
+        setViewControllers([mainVC, startWorkoutVC, profileVC], animated: true)
         
         guard let items = tabBar.items else { return }
         
