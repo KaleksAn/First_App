@@ -108,16 +108,16 @@ extension StartWorkout {
             detailView.topAnchor.constraint(equalTo: detailsLabel.bottomAnchor, constant: 5),
             detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            detailView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 1.5)
+            detailView.heightAnchor.constraint(equalToConstant: 250)
         ])
         
         NSLayoutConstraint.activate([
-            finishButton.topAnchor.constraint(equalTo: detailView.bottomAnchor, constant: 10),
+            finishButton.topAnchor.constraint(equalTo: detailView.bottomAnchor, constant: 20),
             finishButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             finishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             finishButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 7)
         ])
-        
+
     }
     
 }
