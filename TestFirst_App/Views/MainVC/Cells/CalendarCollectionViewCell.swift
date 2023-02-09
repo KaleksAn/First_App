@@ -55,11 +55,17 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupDate(from array: [[String]], at index: IndexPath) {
+        dayOfWeekLabel.text = "\(array[0][index.item])"
+        numberOfDayLabel.text = "\(array[1][index.item])"
+    }
+    
     private func setupViews() {
         
         addSubview(dayOfWeekLabel)
         addSubview(numberOfDayLabel)
     }
+    
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

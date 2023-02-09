@@ -45,7 +45,24 @@ class CalendarView: UIView {
         collectionView.dataSource = self
     }
     
-    
+    private func getDate() -> [[String]] {
+        var arrayComponents: [[String]] = [[], []]
+        let myCalendar = Calendar.current
+        let myDate = Date()
+        let myFormat = DateFormatter()
+        myFormat.locale = Locale(identifier: "en-US")
+        myFormat.dateFormat = "EEEEEEE"
+        
+        for i in -6...0 {
+            let computedDate = myCalendar.date(byAdding: .day, value: i, to: myDate)
+            guard let date = computedDate else { return [[]] }
+            let nameDay = myFormat.string(from: date)
+            arrayComponents[0].append(nameDay)
+            let numberDay = myCalendar.dateComponents([.day], from: date).day ?? 0
+            arrayComponents[1].append("\(numberDay)")
+        }
+        return arrayComponents
+    }
     
 }
 
@@ -59,6 +76,10 @@ extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idCalendarCell, for: indexPath) as! CalendarCollectionViewCell
+        cell.setupDate(from: getDate(), at: indexPath)
+        if indexPath.item == 6 {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .right)
+        }
         return cell
     }
     
