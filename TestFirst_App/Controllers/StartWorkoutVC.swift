@@ -64,8 +64,12 @@ class StartWorkoutVC: UIViewController {
         setupViews()
         setupConstraints()
         setWorkoutParametrs()
+        setDelegates()
     }
     
+    private func setDelegates() {
+        detailView.cellNextSetDelegate = self
+    }
 
     private func setupViews() {
         view.backgroundColor = .specialBackground
@@ -91,12 +95,11 @@ class StartWorkoutVC: UIViewController {
 
 }
 
-//MARK: -
+//MARK: - NextSetProtocol
 extension StartWorkoutVC: NextSetProtocol {
     func nextSetTapped() {
-        
+          print("Tap")
     }
-    
 }
 
 extension StartWorkoutVC {

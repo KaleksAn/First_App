@@ -78,18 +78,18 @@ class DetailsView: UIView {
         button.setTitle("Editing", for: .normal)
         button.tintColor = .specialLightBrown
         button.titleLabel?.font = .robotBold16()
-        button.addTarget(self, action: #selector(nextSetsButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private let nextSetButton: UIButton = {
+    private lazy var nextSetButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("NEXT SET", for: .normal)
         button.titleLabel?.font = .robotMedium18()
         button.tintColor = .specialGray
         button.backgroundColor = .specialYellow
         button.layer.cornerRadius = 10
+        button.addTarget(DetailsView.self, action: #selector(nextSetsButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
