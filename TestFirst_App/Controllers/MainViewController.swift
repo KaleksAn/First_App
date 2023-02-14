@@ -143,11 +143,16 @@ class MainViewController: UIViewController {
     private func getWorkouts(date: Date) {
         
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday], from: date)
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let components = calendar.dateComponents([.weekday, .day, .month, .year], from: date)
         guard let weekDay = components.weekday else { return }
-        print(weekDay)
+        guard let day = components.day else { return }
+        guard let month = components.month else { return }
+        guard let year = components.year else { return }
         
-        let dateStart = date
+        guard let dateStart = formatter.date(from: "\(year)/\(month)/\(day) 00:00") else { return }
         let dateEnd: Date = {
             let components = DateComponents(day: 1, second: -1)
             return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()

@@ -82,7 +82,7 @@ class DetailsView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("NEXT SET", for: .normal)
         button.titleLabel?.font = .robotMedium18()
-        button.tintColor = .specialDarkGreen
+        button.tintColor = .specialGray
         button.backgroundColor = .specialYellow
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -130,7 +130,8 @@ class DetailsView: UIView {
         NSLayoutConstraint.activate([
             setsStackView.topAnchor.constraint(equalTo: bicepsLabel.bottomAnchor, constant: 15),
             setsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15)
+            setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            setsStackView.heightAnchor.constraint(equalToConstant: 25)
         ])
         
         NSLayoutConstraint.activate([
@@ -143,7 +144,8 @@ class DetailsView: UIView {
         NSLayoutConstraint.activate([
             repsStackView.topAnchor.constraint(equalTo: setsUnderLine.bottomAnchor, constant: 30),
             repsStackView.leadingAnchor.constraint(equalTo: setsUnderLine.leadingAnchor),
-            repsStackView.trailingAnchor.constraint(equalTo: setsUnderLine.trailingAnchor)
+            repsStackView.trailingAnchor.constraint(equalTo: setsUnderLine.trailingAnchor),
+            repsStackView.heightAnchor.constraint(equalToConstant: 25)
         ])
         
         NSLayoutConstraint.activate([
