@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartWorkout: UIViewController {
+class StartWorkoutVC: UIViewController {
     
     private let startWorkoutLabel: UILabel = {
        let label = UILabel()
@@ -75,7 +75,7 @@ class StartWorkout: UIViewController {
 
 }
 
-extension StartWorkout {
+extension StartWorkoutVC {
     
     private func setupConstraints() {
         
