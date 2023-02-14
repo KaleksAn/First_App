@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StartworkoutProtocol: AnyObject {
+    func startButtonTapped(model: WorkoutModel)
+}
+
 class WorkoutTableViewCell: UITableViewCell {
     
     private let backgroundWorkoutView: UIView = {
@@ -72,13 +76,17 @@ class WorkoutTableViewCell: UITableViewCell {
         button.titleLabel?.font = .robotMedium18()
         button.layer.cornerRadius = 10
         button.addShadowOnView()
-        button.tintColor = .specialDarkGreen
-        //button.addTarget(self, action: #selector(testFunc), for: .touchUpInside)
+        button.tintColor = .specialGray
+        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private var labelsStackView = UIStackView()
+    
+    var workoutModel = WorkoutModel()
+    
+    weak var cellStartWorkoutDelegate: StartworkoutProtocol?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -105,6 +113,7 @@ class WorkoutTableViewCell: UITableViewCell {
     }
     
     func cellConfigure(model: WorkoutModel) {
+        workoutModel = model
         workoutNameLabel.text = model.workoutName
         
         let (min, sec) = { return ($0 / 60, $0 % 60) }(model.workoutTimer)
@@ -116,6 +125,10 @@ class WorkoutTableViewCell: UITableViewCell {
         workoutImageView.image = image
     }
     
+    @objc
+    private func startButtonTapped() {
+        cellStartWorkoutDelegate?.startButtonTapped(model: workoutModel)
+    }
     
     private func setConstraints(){
         

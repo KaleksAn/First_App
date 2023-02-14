@@ -168,6 +168,25 @@ class MainViewController: UIViewController {
     
 }
 
+//MARK: - StartworkoutProtocol
+@available(iOS 15.0, *)
+extension MainViewController: StartworkoutProtocol {
+    
+    func startButtonTapped(model: WorkoutModel) {
+        
+        if model.workoutTimer == 0 {
+            let startWorkoutViewController = StartWorkoutVC()
+            startWorkoutViewController.modalPresentationStyle = .fullScreen
+            startWorkoutViewController.workoutModel = model
+            present(startWorkoutViewController, animated: true)
+        } else {
+            print("timer VC")
+        }
+        
+        
+    }
+    
+}
 
 //MARK: - UITableViewDataSource
 @available(iOS 15.0, *)
@@ -180,6 +199,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! WorkoutTableViewCell
         let model = workoutArray[indexPath.row]
         cell.cellConfigure(model: model)
+        cell.cellStartWorkoutDelegate = self
         return cell
     }
 }

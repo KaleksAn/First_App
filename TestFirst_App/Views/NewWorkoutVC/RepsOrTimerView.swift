@@ -20,7 +20,7 @@ class RepsOrTimerView: UIView {
     
      let numberSetslabel: UILabel = {
        let label = UILabel()
-        label.text = "1"
+        label.text = "0"
         label.font = .robotMedium24()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ class RepsOrTimerView: UIView {
     
      lazy var setsSlider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 1
+        slider.minimumValue = 0
         slider.maximumValue = 50
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
@@ -59,7 +59,7 @@ class RepsOrTimerView: UIView {
     
      let numberRepslabel: UILabel = {
        let label = UILabel()
-        label.text = "1"
+        label.text = "0"
         label.font = .robotMedium24()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +68,7 @@ class RepsOrTimerView: UIView {
     
      lazy var repsSlider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 1
+        slider.minimumValue = 0
         slider.maximumValue = 50
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
@@ -88,7 +88,7 @@ class RepsOrTimerView: UIView {
     
      let numberOfTimerLabel: UILabel = {
        let label = UILabel()
-        label.text = "1 min"
+        label.text = "0 min"
         label.font = .robotMedium24()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +97,7 @@ class RepsOrTimerView: UIView {
     
      lazy var timerSlider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 1
+        slider.minimumValue = 0
         slider.maximumValue = 600
         slider.maximumTrackTintColor = .specialLightBrown
         slider.minimumTrackTintColor = .specialGreen
@@ -166,9 +166,9 @@ class RepsOrTimerView: UIView {
     private func deactivateStatus(for label: UILabel, numberLabel: UILabel, and slider: UISlider) {
         label.alpha = 0.5
         numberLabel.alpha = 0.5
-        numberLabel.text = label.text == "Timer" ? "1 min" : "1"
+        numberLabel.text = label.text == "Timer" ? "0 min" : "1"
         slider.alpha = 0.5
-        slider.value = 1
+        slider.value = 0
     }
     
     private func activateStatus(for label: UILabel, numberLabel: UILabel, and slider: UISlider) {

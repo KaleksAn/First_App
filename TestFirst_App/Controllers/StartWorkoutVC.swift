@@ -50,6 +50,8 @@ class StartWorkoutVC: UIViewController {
     private let detailsLabel = UILabel(text: "Details")
     private let detailView = DetailsView()
     
+    var workoutModel = WorkoutModel()
+    
     override func viewDidLayoutSubviews() {
         closeButton.layer.cornerRadius = closeButton.frame.width / 2
     }
