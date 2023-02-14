@@ -85,7 +85,7 @@ extension StartWorkout {
         ])
         
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            closeButton.centerYAnchor.constraint(equalTo: startWorkoutLabel.centerYAnchor),
             closeButton.leadingAnchor.constraint(equalTo: startWorkoutLabel.trailingAnchor, constant: 10),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             closeButton.heightAnchor.constraint(equalToConstant: 30),
@@ -95,8 +95,8 @@ extension StartWorkout {
         NSLayoutConstraint.activate([
             imageWorkout.topAnchor.constraint(equalTo: startWorkoutLabel.bottomAnchor, constant: 25),
             imageWorkout.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageWorkout.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1 / 2),
-            imageWorkout.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 2)
+            imageWorkout.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            imageWorkout.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
         ])
         
         NSLayoutConstraint.activate([
