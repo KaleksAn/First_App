@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NextSetProtocol: AnyObject {
+    func nextSetTapped()
+}
+
 class DetailsView: UIView {
     
     let nameLabel: UILabel = {
@@ -68,12 +72,13 @@ class DetailsView: UIView {
         return view
     }()
     
-    private let editingButton: UIButton = {
+    private lazy var editingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "editing")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle("Editing", for: .normal)
         button.tintColor = .specialLightBrown
         button.titleLabel?.font = .robotBold16()
+        button.addTarget(self, action: #selector(nextSetsButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -92,6 +97,8 @@ class DetailsView: UIView {
     
     private var setsStackView = UIStackView()
     private var repsStackView = UIStackView()
+    
+    weak var cellNextSetDelegate: NextSetProtocol?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -119,6 +126,11 @@ class DetailsView: UIView {
         addSubview(editingButton)
         addSubview(nextSetButton)
         
+    }
+    
+    @objc
+    private func nextSetsButton() {
+        cellNextSetDelegate?.nextSetTapped()
     }
     
     private func setConstraints() {

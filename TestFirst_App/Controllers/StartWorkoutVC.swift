@@ -91,6 +91,14 @@ class StartWorkoutVC: UIViewController {
 
 }
 
+//MARK: -
+extension StartWorkoutVC: NextSetProtocol {
+    func nextSetTapped() {
+        
+    }
+    
+}
+
 extension StartWorkoutVC {
     
     private func setupConstraints() {
