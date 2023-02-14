@@ -19,11 +19,12 @@ class StartWorkoutVC: UIViewController {
         return label
     }()
     
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let image = UIImage(named: "closeButton")?.withRenderingMode(.alwaysOriginal)
         let button = UIButton(type: .system)
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(tappedCloseButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -51,6 +52,7 @@ class StartWorkoutVC: UIViewController {
     private let detailView = DetailsView()
     
     var workoutModel = WorkoutModel()
+    private var numberOfSet = 1
     
     override func viewDidLayoutSubviews() {
         closeButton.layer.cornerRadius = closeButton.frame.width / 2
@@ -61,6 +63,7 @@ class StartWorkoutVC: UIViewController {
         
         setupViews()
         setupConstraints()
+        setWorkoutParametrs()
     }
     
 
@@ -72,6 +75,17 @@ class StartWorkoutVC: UIViewController {
         view.addSubview(detailsLabel)
         view.addSubview(detailView)
         view.addSubview(finishButton)
+    }
+    
+    private func setWorkoutParametrs() {
+        detailView.nameLabel.text = workoutModel.workoutName
+        detailView.numbersSets.text = "\(numberOfSet)/\(workoutModel.workoutSets)"
+        detailView.numbersReps.text = "\(workoutModel.workoutReps)"
+    }
+    
+    @objc
+    private func tappedCloseButton() {
+        dismiss(animated: true)
     }
     
 

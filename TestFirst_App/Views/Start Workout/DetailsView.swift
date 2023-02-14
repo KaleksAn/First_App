@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsView: UIView {
     
-    private let bicepsLabel: UILabel = {
+    let nameLabel: UILabel = {
        let label = UILabel()
         label.text = "Biceps"
         label.textColor = .specialGray
@@ -27,7 +27,7 @@ class DetailsView: UIView {
         return label
     }()
     
-    private let numbersSets: UILabel = {
+     let numbersSets: UILabel = {
        let label = UILabel()
         label.text = "1/4"
         label.textColor = .specialGray
@@ -52,7 +52,7 @@ class DetailsView: UIView {
         return label
     }()
     
-    private let numbersReps: UILabel = {
+    let numbersReps: UILabel = {
        let label = UILabel()
         label.text = "20"
         label.textColor = .specialGray
@@ -107,7 +107,7 @@ class DetailsView: UIView {
         backgroundColor = .specialBrown
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 10
-        addSubview(bicepsLabel)
+        addSubview(nameLabel)
         
         setsStackView = UIStackView(arrangedSubviews: [setsLabel, numbersSets], axis: .horizontal, spacing: 10)
         addSubview(setsStackView)
@@ -123,12 +123,12 @@ class DetailsView: UIView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            bicepsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            bicepsLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            setsStackView.topAnchor.constraint(equalTo: bicepsLabel.bottomAnchor, constant: 15),
+            setsStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 15),
             setsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             setsStackView.heightAnchor.constraint(equalToConstant: 25)

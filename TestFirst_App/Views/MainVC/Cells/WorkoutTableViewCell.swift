@@ -70,9 +70,9 @@ class WorkoutTableViewCell: UITableViewCell {
     
     private lazy var startButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("START", for: .normal)
-        button.setTitleColor(.specialDarkGreen, for: .normal)
-        button.backgroundColor = .specialYellow
+       // button.setTitle("START", for: .normal)
+        //button.setTitleColor(.specialDarkGreen, for: .normal)
+        //button.backgroundColor = .specialYellow
         button.titleLabel?.font = .robotMedium18()
         button.layer.cornerRadius = 10
         button.addShadowOnView()
@@ -123,6 +123,18 @@ class WorkoutTableViewCell: UITableViewCell {
         guard let imageData = model.workoutImage else { return }
         guard let image = UIImage(data: imageData) else { return }
         workoutImageView.image = image
+        
+        if model.workoutStatus {
+            startButton.setTitle("COMPLETE", for: .normal)
+            startButton.tintColor = .white
+            startButton.backgroundColor = .specialGreen
+            startButton.isEnabled = false
+        } else {
+            startButton.setTitle("START", for: .normal)
+            startButton.tintColor = .specialDarkGreen
+            startButton.backgroundColor = .specialYellow
+            startButton.isEnabled = true
+        }
     }
     
     @objc
