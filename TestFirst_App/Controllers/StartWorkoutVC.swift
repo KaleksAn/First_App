@@ -37,13 +37,14 @@ class StartWorkoutVC: UIViewController {
         return imageView
     }()
     
-    private let finishButton: UIButton = {
+    private lazy var finishButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("FINISH", for: .normal)
         button.titleLabel?.tintColor = .white
         button.titleLabel?.font = .robotBold16()
         button.backgroundColor = .specialGreen
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(finishButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -92,16 +93,34 @@ class StartWorkoutVC: UIViewController {
         dismiss(animated: true)
     }
     
+    @objc
+    private func finishButtonTapped() {
+        if numberOfSet == workoutModel.workoutSets {
+            dismiss(animated: true)
+            RealmManager.shared.updateWorkoutModel(model: workoutModel, bool: true)
+        } else {
+            alertOkCancel(title: "worning", message: "You haven't finished your workout") { [weak self] in
+                self?.dismiss(animated: true)
+            }
+        }
+    }
+    
 
 }
 
 //MARK: - NextSetProtocol
 extension StartWorkoutVC: NextSetProtocol {
     func nextSetTapped() {
-          print("Tap")
+        if numberOfSet < workoutModel.workoutSets {
+            numberOfSet += 1
+            detailView.numbersSets.text = "\(numberOfSet)/\(workoutModel.workoutSets)"
+        } else {
+            alertOk(title: "Error", message: "Finish your workout")
+        }
     }
 }
 
+//MARK: - Set constraints
 extension StartWorkoutVC {
     
     private func setupConstraints() {

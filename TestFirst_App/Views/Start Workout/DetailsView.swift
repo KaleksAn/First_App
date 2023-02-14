@@ -35,6 +35,7 @@ class DetailsView: UIView {
        let label = UILabel()
         label.text = "1/4"
         label.textColor = .specialGray
+         label.textAlignment = .right
         label.font = .robotMedium24()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -89,7 +90,7 @@ class DetailsView: UIView {
         button.tintColor = .specialGray
         button.backgroundColor = .specialYellow
         button.layer.cornerRadius = 10
-        button.addTarget(DetailsView.self, action: #selector(nextSetsButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(nextSetsButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -117,6 +118,7 @@ class DetailsView: UIView {
         addSubview(nameLabel)
         
         setsStackView = UIStackView(arrangedSubviews: [setsLabel, numbersSets], axis: .horizontal, spacing: 10)
+        setsStackView.contentMode = .scaleAspectFill
         addSubview(setsStackView)
         addSubview(setsUnderLine)
         
@@ -140,9 +142,9 @@ class DetailsView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            setsStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 15),
-            setsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            setsStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            setsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             setsStackView.heightAnchor.constraint(equalToConstant: 25)
         ])
         
