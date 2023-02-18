@@ -36,6 +36,7 @@
 		D86E582F296FF3D4006EE429 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D86E582E296FF3D4006EE429 /* Roboto-Bold.ttf */; };
 		D86E5832297026F7006EE429 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E5831297026F7006EE429 /* CalendarView.swift */; };
 		D86E583529703441006EE429 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E583429703441006EE429 /* CalendarCollectionViewCell.swift */; };
+		D88F0CA429A191EE0097BCE3 /* StartTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F0CA329A191EE0097BCE3 /* StartTimerViewController.swift */; };
 		D8BBDE1B298177EE00BC9323 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BBDE1A298177EE00BC9323 /* WeatherView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		D86E582E296FF3D4006EE429 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		D86E5831297026F7006EE429 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D86E583429703441006EE429 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		D88F0CA329A191EE0097BCE3 /* StartTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTimerViewController.swift; sourceTree = "<group>"; };
 		D8BBDE1A298177EE00BC9323 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 				D80D44CE298998FF00738F98 /* StatisticViewController.swift */,
 				D80D44D02989990B00738F98 /* ProfileViewController.swift */,
 				D85E5495298E3D9F00BE7980 /* StartWorkoutVC.swift */,
+				D88F0CA329A191EE0097BCE3 /* StartTimerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				D85E5498298E571300BE7980 /* DetailsView.swift in Sources */,
 				D80D44CF298998FF00738F98 /* StatisticViewController.swift in Sources */,
 				D8496F27298B99FB007AD7B1 /* RealmManager.swift in Sources */,
+				D88F0CA429A191EE0097BCE3 /* StartTimerViewController.swift in Sources */,
 				D8496F29298BB6F5007AD7B1 /* SimpleAlert.swift in Sources */,
 				D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */,
 				D85E5496298E3D9F00BE7980 /* StartWorkoutVC.swift in Sources */,
