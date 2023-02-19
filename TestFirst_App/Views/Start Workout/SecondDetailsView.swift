@@ -124,7 +124,53 @@ class SecondDetailsView: UIView {
         addSubview(nextSetButton)
     }
     
+    //MARK: - Setup constraints
     private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            firstStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            firstStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            firstStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            firstStackView.heightAnchor.constraint(equalToConstant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            setsUnderLine.topAnchor.constraint(equalTo: firstStackView.bottomAnchor, constant: 2),
+            setsUnderLine.leadingAnchor.constraint(equalTo: firstStackView.leadingAnchor),
+            setsUnderLine.trailingAnchor.constraint(equalTo: firstStackView.trailingAnchor),
+            setsUnderLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        NSLayoutConstraint.activate([
+            secondStackView.topAnchor.constraint(equalTo: setsUnderLine.bottomAnchor, constant: 30),
+            secondStackView.leadingAnchor.constraint(equalTo: setsUnderLine.leadingAnchor),
+            secondStackView.trailingAnchor.constraint(equalTo: setsUnderLine.trailingAnchor),
+            secondStackView.heightAnchor.constraint(equalToConstant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            timerUnderLine.topAnchor.constraint(equalTo: secondStackView.bottomAnchor, constant: 2),
+            timerUnderLine.leadingAnchor.constraint(equalTo: secondStackView.leadingAnchor),
+            timerUnderLine.trailingAnchor.constraint(equalTo: secondStackView.trailingAnchor),
+            timerUnderLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        NSLayoutConstraint.activate([
+            editingButton.topAnchor.constraint(equalTo: secondStackView.bottomAnchor, constant: 5),
+            editingButton.trailingAnchor.constraint(equalTo: secondStackView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            nextSetButton.topAnchor.constraint(equalTo: editingButton.bottomAnchor, constant: 10),
+            nextSetButton.leadingAnchor.constraint(equalTo: timerUnderLine.leadingAnchor),
+            nextSetButton.trailingAnchor.constraint(equalTo: timerUnderLine.trailingAnchor),
+            nextSetButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
         
     }
 
