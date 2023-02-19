@@ -47,6 +47,18 @@ class StartTimerViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    private lazy var finishButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("FINISH", for: .normal)
+        button.titleLabel?.tintColor = .white
+        button.titleLabel?.font = .robotBold16()
+        button.backgroundColor = .specialGreen
+        button.layer.cornerRadius = 10
+        //button.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     private let details = UILabel(text: "Details")
     private let detailsView = SecondDetailsView()
@@ -71,6 +83,7 @@ class StartTimerViewController: UIViewController {
         view.addSubview(timer)
         view.addSubview(details)
         view.addSubview(detailsView)
+        view.addSubview(finishButton)
     }
     
     
@@ -117,6 +130,13 @@ extension StartTimerViewController {
             detailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             detailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             detailsView.heightAnchor.constraint(equalToConstant: 250)
+        ])
+        
+        NSLayoutConstraint.activate([
+            finishButton.topAnchor.constraint(equalTo: detailsView.bottomAnchor, constant: 20),
+            finishButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            finishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            finishButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.14)
         ])
         
     }
