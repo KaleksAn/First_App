@@ -35,7 +35,7 @@ class DetailsView: UIView {
        let label = UILabel()
         label.text = "1/4"
         label.textColor = .specialGray
-         label.textAlignment = .right
+        label.textAlignment = .right
         label.font = .robotMedium24()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
