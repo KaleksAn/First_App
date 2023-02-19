@@ -142,12 +142,13 @@ extension StartWorkoutVC {
             imageWorkout.topAnchor.constraint(equalTo: startWorkoutLabel.bottomAnchor, constant: 25),
             imageWorkout.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageWorkout.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            imageWorkout.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+            imageWorkout.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)
         ])
         
         NSLayoutConstraint.activate([
             detailsLabel.topAnchor.constraint(equalTo: imageWorkout.bottomAnchor, constant: 10),
-            detailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            detailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            detailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
         
         NSLayoutConstraint.activate([

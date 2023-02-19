@@ -37,6 +37,7 @@
 		D86E5832297026F7006EE429 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E5831297026F7006EE429 /* CalendarView.swift */; };
 		D86E583529703441006EE429 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E583429703441006EE429 /* CalendarCollectionViewCell.swift */; };
 		D88F0CA429A191EE0097BCE3 /* StartTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F0CA329A191EE0097BCE3 /* StartTimerViewController.swift */; };
+		D88F0CA629A19DDB0097BCE3 /* SecondDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F0CA529A19DDB0097BCE3 /* SecondDetailsView.swift */; };
 		D8BBDE1B298177EE00BC9323 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BBDE1A298177EE00BC9323 /* WeatherView.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		D86E5831297026F7006EE429 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D86E583429703441006EE429 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		D88F0CA329A191EE0097BCE3 /* StartTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTimerViewController.swift; sourceTree = "<group>"; };
+		D88F0CA529A19DDB0097BCE3 /* SecondDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDetailsView.swift; sourceTree = "<group>"; };
 		D8BBDE1A298177EE00BC9323 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				D85E5497298E571300BE7980 /* DetailsView.swift */,
+				D88F0CA529A19DDB0097BCE3 /* SecondDetailsView.swift */,
 			);
 			path = "Start Workout";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				D8496F29298BB6F5007AD7B1 /* SimpleAlert.swift in Sources */,
 				D86E5809296FE447006EE429 /* AppDelegate.swift in Sources */,
 				D85E5496298E3D9F00BE7980 /* StartWorkoutVC.swift in Sources */,
+				D88F0CA629A19DDB0097BCE3 /* SecondDetailsView.swift in Sources */,
 				D85EC43F299BBB2B0008FCB2 /* AlertOkCancel.swift in Sources */,
 				D86E580B296FE447006EE429 /* SceneDelegate.swift in Sources */,
 			);
